@@ -1,6 +1,20 @@
 @isTest
-public with sharing class AccesBeneficiaire_DataFactory {
-	
+public with sharing class TEST_DataFactory {
+
+    
+
+    public static Account createAccount(String AccountName, String phone, String siret) {        
+    	Account res = new Account(
+            Name = AccountName, 
+            Phone = phone,
+            CompanySiretNumber__c = siret,
+        	BillingStreet = '00 SomeWhere',
+        	BillingCity = 'SinCity',
+        	BillingCountry = 'France',
+        	BillingPostalcode = '75000');   
+        return res;
+    }
+
     public static Acces_beneficiaire__c createBeneficiaire(String name,
                                                           ID compteId,
                                                           String email,
@@ -11,9 +25,6 @@ public with sharing class AccesBeneficiaire_DataFactory {
             AccessAccount__c = compteId,
             AccessEmail__c = email, 
             AccessStoreState__c = statut);
-                                                              
-        INSERT result;
-        
         return result;
     }
 }
